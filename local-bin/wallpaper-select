@@ -1,0 +1,20 @@
+#!/bin/bash
+WALL_DIR="$HOME/Pictures/wallpapers"
+STATE_FILE="$HOME/.cache/current_wallpaper"
+
+selected=$(
+  for f in "$WALL_DIR"/*.jpg "$WALL_DIR"/*.jpeg "$WALL_DIR"/*.png; do
+    [ -e "$f" ] || continue
+    name=$(basename "$f")
+    printf '%s\0icon\x1f%s\n' "$name" "$f"
+  done | rofi -dmenu -i -p "Wallpaper" -show-icons -theme ~/.config/rofi/wallpaper.rasi
+)
+
+[ -z "$selected" ] && exit 0
+
+echo "$WALL_DIR/$selected" > "$STATE_FILE"
+
+pkill swaybg
+sleep 0.3
+setsid swaybg -i "$WALL_DIR/$selected" -m fill >/tmp/swaybg.log 2>&1 &
+disown

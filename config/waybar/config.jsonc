@@ -1,0 +1,51 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "width": 700,
+    "margin-top": 2,
+    "spacing": 20,
+
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock", "custom/iat-countdown"],
+    "modules-right": ["custom/wiremix", "custom/screenshot", "custom/nmtui"],
+
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "*": [1, 2, 3, 4]
+        }
+    },
+
+    "clock": {
+        "format": "{:%I:%M:%S %p  %A %d/%m/%Y}",
+        "interval": 1,
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "custom/iat-countdown": {
+        "exec": "~/.config/waybar/scripts/iat-countdown.sh",
+        "interval": 3600,
+        "return-type": "json",
+        "tooltip": true
+    },
+
+    "custom/wiremix": {
+        "format": "󰕾",
+        "on-click": "kitty --title wiremix -e wiremix",
+        "tooltip-format": "Open wiremix"
+    },
+
+    "custom/screenshot": {
+        "format": "󰹑",
+        "on-click": "mkdir -p \"$HOME/Pictures/Screenshots\"; grim -g \"$(slurp)\" \"$HOME/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png\"",
+        "tooltip": true
+    },
+
+    "custom/nmtui": {
+        "format": "󰤨",
+        "on-click": "kitty --title nmtui -e nmtui",
+        "tooltip-format": "Open nmtui"
+    }
+}

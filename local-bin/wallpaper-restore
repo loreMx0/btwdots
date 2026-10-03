@@ -1,0 +1,9 @@
+#!/bin/bash
+STATE_FILE="$HOME/.cache/current_wallpaper"
+DEFAULT="$HOME/Pictures/wallpapers/default.jpg"
+
+WALL=$(cat "$STATE_FILE" 2>/dev/null)
+[ -f "$WALL" ] || WALL="$DEFAULT"
+
+setsid swaybg -i "$WALL" -m fill >/tmp/swaybg.log 2>&1 &
+disown

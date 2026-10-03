@@ -1,0 +1,8 @@
+catppuccin-cursors-mocha
+catppuccin-gtk-theme-mocha
+localsend-bin
+mtkclient-git
+nitrogen
+uabea-next-git
+uabea-next-git-debug
+yay-debug

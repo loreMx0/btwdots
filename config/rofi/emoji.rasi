@@ -1,0 +1,79 @@
+* {
+    bg:       #0a0609;
+    bg-alt:   #2a151e;
+    fg:       #e8dfe2;
+    accent:   #d78fa0;
+    pink:     #e2a6bb;
+
+    background-color: transparent;
+    text-color: @fg;
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+window {
+    background-color: @bg;
+    border: 1px;
+    border-color: @accent;
+    border-radius: 10px;
+    width: 480px;
+    padding: 12px;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing: 10px;
+}
+
+inputbar {
+    background-color: @bg-alt;
+    text-color: @fg;
+    border-radius: 6px;
+    padding: 8px 10px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @pink;
+    padding: 0 8px 0 0;
+}
+
+entry {
+    placeholder: "Search emoji...";
+}
+
+listview {
+    layout: vertical;
+    lines: 7;
+    spacing: 4px;
+    fixed-height: false;
+    scrollbar: false;
+}
+
+element {
+    orientation: horizontal;
+    spacing: 10px;
+    padding: 10px 12px;
+    border-radius: 6px;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element selected.normal {
+    background-color: @bg-alt;
+    text-color: @accent;
+    border: 0px 0px 0px 2px;
+    border-color: @accent;
+    }
+
+element-text {
+    font: "JetBrainsMono Nerd Font 12";
+    vertical-align: 0.5;
+}
+
+element-icon {
+    size: 28px;
+    vertical-align: 0.5;
+  }

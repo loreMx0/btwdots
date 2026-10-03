@@ -1,0 +1,76 @@
+* {
+    bg:       #2b3a52ee;
+    bg-alt:   #3d5470;
+    fg:       #f0e6cf;
+    accent:   #7fb3ad;
+    pink:     #e2a6bb;
+
+    background-color: transparent;
+    text-color: @fg;
+    font: "JetBrains Mono 11";
+}
+
+window {
+    background-color: @bg;
+    border: 2px;
+    border-color: @accent;
+    border-radius: 12px;
+    width: 900px;
+    padding: 20px;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing: 15px;
+}
+
+inputbar {
+    background-color: @bg-alt;
+    text-color: @fg;
+    border-radius: 8px;
+    padding: 10px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @pink;
+    padding: 0 10px 0 0;
+}
+
+entry {
+    placeholder: "Search wallpapers...";
+}
+
+listview {
+    layout: vertical;
+    columns: 3;
+    lines: 2;
+    spacing: 12px;
+    fixed-height: true;
+}
+
+element {
+    orientation: vertical;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+element normal.normal {
+    background-color: @bg-alt;
+    text-color: @fg;
+}
+
+element selected.normal {
+    background-color: @accent;
+    text-color: @bg;
+}
+
+element-icon {
+    size: 180px;
+    horizontal-align: 0.5;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    padding: 4px 0 0 0;
+}

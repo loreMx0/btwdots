@@ -1,0 +1,55 @@
+* {
+    base:    #12100e;
+    surface: #262220;
+    text:    #e8ddc7;
+    red:     #a02c3a;
+    border:  #7a1f2b;
+}
+
+window {
+    background-color: @base;
+    border: 1px;
+    border-color: @border;
+    width: 480px;
+    padding: 12px;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing: 10px;
+}
+
+inputbar {
+    background-color: @surface;
+    text-color: @text;
+    padding: 8px 10px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @red;
+    padding: 0 8px 0 0;
+}
+
+listview {
+    layout: vertical;
+    lines: 8;
+    spacing: 2px;
+    scrollbar: false;
+}
+
+element {
+    padding: 8px 10px;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @text;
+}
+
+element selected.normal {
+    background-color: @surface;
+    text-color: @red;
+    border: 0px 0px 0px 2px;
+    border-color: @red;
+}
